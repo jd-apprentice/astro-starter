@@ -1,0 +1,36 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+
+export interface PropsVideo extends HTMLVideoElement {
+	volume: number;
+}
+---
+
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			.main-video {
+				max-width: 100%;
+				height: auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<Header title={SITE_TITLE} />
+		<main>
+			<video class="main-video" src="/InitialD.mp4" controls loop></video>
+		</main>
+		<Footer />
+		<script>
+			import { PropsVideo } from "./index.astro";
+			const getVideo: PropsVideo = document.querySelector(".main-video");
+			getVideo.volume = 0.1;
+		</script>
+	</body>
+</html>
