@@ -24,7 +24,13 @@ export interface PropsVideo extends HTMLVideoElement {
 	<body>
 		<Header title={SITE_TITLE} />
 		<main>
-			<video class="main-video" src="/InitialD.mp4" controls loop></video>
+			<video
+				poster="/load.jpg"
+				class="main-video"
+				preload="auto"
+				src="/InitialD.mp4"
+				controls
+				loop></video>
 		</main>
 		<Footer />
 		<script>
